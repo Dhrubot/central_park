@@ -1,3 +1,8 @@
+# Brief Explanation
+
+This gem pulls up NYC central park's daily programs and activities.
+
+
 # CentralPark
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/central_park`. To experiment with that code, run `bin/console` for an interactive prompt.
