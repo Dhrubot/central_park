@@ -1,4 +1,12 @@
-require "central_park/version"
+require "Nokogiri"
+require "pry"
+require "open-uri"
+
+require_relative "./central_park/version"
+require_relative "./central_park/program"
+require_relative "./central_park/menu"
+require_relative "./central_park/scraper"
+require_relative "./central_park/cli"
 
 module CentralPark
   class Error < StandardError; end
