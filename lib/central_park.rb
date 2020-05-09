@@ -1,6 +1,7 @@
 require "Nokogiri"
 require "pry"
 require "open-uri"
+require "colorize"
 
 require_relative "./central_park/version"
 require_relative "./central_park/program"
@@ -12,3 +13,5 @@ module CentralPark
   class Error < StandardError; end
   # Your code goes here...
 end
+
+
