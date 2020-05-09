@@ -1,6 +1,6 @@
 # Brief Explanation
 
-This gem pulls up NYC central park's daily programs and activities.
+This Ruby gem provides information of NYC central park's daily programs and activities in a CLI.
 
 
 # CentralPark
