@@ -9,6 +9,7 @@ class CentralPark::CLI
     end
 
     def get_menu
+        #initial scrape. grabs the titles with a short blurb from the first page
         @menus = CentralPark::Menu.all
         print_menu
     end
@@ -36,7 +37,6 @@ class CentralPark::CLI
             end 
 
             puts ""
-            puts ""
             puts "Would you like to inquire about another program? Please type 'y'/'n':"
             puts ""
             input = gets.strip.downcase
@@ -62,6 +62,7 @@ class CentralPark::CLI
 
     def get_details(input)
         input = input.to_i
+        # 2nd scrape. Scrapes a program's own page.
         program = CentralPark::Program.create_from_menu(input)
         print_details(program)
     end
@@ -74,10 +75,30 @@ class CentralPark::CLI
         puts "===============================================================".blue
         puts "#{program.description}"
         puts ""
-        puts "Location : #{program.location}".light_cyan
-        puts ""
-        puts ""
-        puts ""
+        if program.location != nil
+            puts "Location:".light_yellow
+            puts "#{program.location}"
+            puts ""
+        end
+        if program.age != nil
+            puts "#{program.age}" 
+            puts ""
+        end
+        if program.schedule != nil
+            puts "Open:".light_yellow
+            puts "#{program.schedule.sub!("Summer", "")}"
+            puts ""
+        end
+        if program.cost != nil
+            puts "Cost:".light_yellow 
+            puts "#{program.cost}"
+            puts ""
+        end
+        if program.availability != nil
+            puts "Availability:".light_yellow
+            puts "#{program.availability}" 
+            puts ""
+        end
     end
 
     def print_menu
@@ -121,7 +142,7 @@ class CentralPark::CLI
   
         DOC
 
-        sleep(7)
+        sleep(5)
    end
 
 end

@@ -1,13 +1,17 @@
 class CentralPark::Program 
 
-    attr_accessor :title, :description, :location
+    attr_accessor :title, :description, :location, :age, :schedule, :cost, :availability
 
     @@all = []
 
-    def initialize(title, description, location)
+    def initialize(title, description, location = nil, age = nil, schedule = nil, cost = nil, availability = nil)
         @title = title
         @description = description
         @location = location
+        @age = age
+        @schedule = schedule
+        @cost = cost
+        @availability = availability
         @@all << self
     end
 
