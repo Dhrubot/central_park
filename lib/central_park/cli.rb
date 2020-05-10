@@ -37,7 +37,7 @@ class CentralPark::CLI
             end 
 
             puts ""
-            puts "Would you like to inquire about another program? Please type 'y'/'n':"
+            puts "Would you like to inquire about another program? Please type 'y' for yes or type 'n' to quit:".blue
             puts ""
             input = gets.strip.downcase
                 
@@ -73,30 +73,31 @@ class CentralPark::CLI
         puts ""
         puts "#{program.title}".green
         puts "===============================================================".blue
-        puts "#{program.description}"
+        puts "#{program.description}".light_cyan
         puts ""
         if program.location != nil
             puts "Location:".light_yellow
-            puts "#{program.location}"
+            puts "#{program.location}".light_green
             puts ""
         end
         if program.age != nil
-            puts "#{program.age}" 
+            puts "Age:".light_yellow
+            puts "#{program.age}".light_green
             puts ""
         end
         if program.schedule != nil
             puts "Open:".light_yellow
-            puts "#{program.schedule.sub!("Summer", "")}"
+            puts "#{program.schedule.sub!("Summer", "")}".light_green
             puts ""
         end
         if program.cost != nil
             puts "Cost:".light_yellow 
-            puts "#{program.cost}"
+            puts "#{program.cost}".light_green
             puts ""
         end
         if program.availability != nil
             puts "Availability:".light_yellow
-            puts "#{program.availability}" 
+            puts "#{program.availability}".light_green
             puts ""
         end
     end
