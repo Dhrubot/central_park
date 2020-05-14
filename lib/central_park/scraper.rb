@@ -1,8 +1,7 @@
 class CentralPark::Scraper
     def self.menu_scraper
-        doc = Nokogiri::HTML(open("https://www.centralparknyc.org/whats-happening"))
-        menu_elements = doc.css(".media")
-
+        doc = Nokogiri::HTML(open("https://www.centralparknyc.org/programs"))
+        menu_elements = doc.css(".u-two-up")[1].css(".media")
         menu_elements.each do |ele|
             title = ele.css(".title").text.gsub /^\s+/, ""
             blurb = ele.css(".content p").text
@@ -12,8 +11,7 @@ class CentralPark::Scraper
     end
 
     def self.program_details_scraper(menu)
-        url = "https://www.centralparknyc.org#{menu.link}"   
-        
+        url = "#{menu.link}" 
         doc = Nokogiri::HTML(open(url))
         details = doc.css(".u-two-up")
         title = doc.css("h1").text
@@ -39,3 +37,4 @@ class CentralPark::Scraper
         CentralPark::Program.new(title, description, location, age, schedule, cost, availability)
     end
 end
+
